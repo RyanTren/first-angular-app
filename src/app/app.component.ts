@@ -10,5 +10,9 @@ import { HeaderComponent } from "./header/header.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'first-angular-app';
+  title: string = 'first-angular-app';
+  imgURL: string = 'https://bluemoji.io/cdn-proxy/646218c67da47160c64a84d5/66b3ea5e4fa4ba1531cce640_46.png';
+  isDisabled: boolean = true;
+  isActive: boolean = false;
+  fruitName: string = 'Apple';
 }

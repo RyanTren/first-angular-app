@@ -1,3 +1,18 @@
-<h1>First Angular App</h1>
 <app-navbar></app-navbar>
 <app-header></app-header>
+
+<h1>First Angular App</h1>
+
+<h2> {{title}} </h2> <!-- string interpolation (text) -->
+<p>{{1+1}}</p> <!-- string interpolation (number) -->
+<img [src]="imgURL" alt="freaky ah emoji"> <!-- property binding -->
+
+<!-- string interpolation vs property binding -->
+ <button disabled="{{isDisabled}}">disable w/ string interpolation</button>
+ <button [disabled]="isDisabled">disable w/ property binding</button>
+
+<!-- class binding -->
+<button [class.active]="isActive" [class.no-active]="!isActive">Click Me</button>
+
+<!-- style binding  -->
+ <button [class.apple]="fruitName == 'Apple'">Fruit Ninja!</button>
