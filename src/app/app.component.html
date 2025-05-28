@@ -1,11 +1,11 @@
-<app-navbar></app-navbar>
-<app-header></app-header>
+<!-- <app-navbar></app-navbar> -->
+<!-- <app-header></app-header> -->
 
-<h1>First Angular App</h1>
+<!-- <h1>First Angular App</h1> -->
 
-<h2> {{title}} </h2> <!-- string interpolation (text) -->
-<p>{{1+1}}</p> <!-- string interpolation (number) -->
-<img [src]="imgURL" alt="freaky ah emoji"> <!-- property binding -->
+<!-- <h2> {{title}} </h2> string interpolation (text) -->
+<!-- <p>{{1+1}}</p> string interpolation (number) -->
+<!-- <img [src]="imgURL" alt="freaky ah emoji"> property binding -->
 
 <!-- string interpolation vs property binding -->
  <!-- <button disabled="{{isDisabled}}">disable w/ string interpolation</button> -->
@@ -47,6 +47,160 @@
 <!-- <input type="text" [(ngModel)]="userName"  > -->
 <!-- <h3>{{userName}}</h3> -->
 
-<input type="text" [value]='textValue' (keyup.enter)="onKeyup()">
+<!-- <input type="text" [value]='textValue' (keyup.enter)="onKeyup()"> -->
 
-<input type="text" [(ngModel)]='textValue' (keyup.enter)="onKeyup()">
+<!-- <input type="text" [(ngModel)]='textValue' (keyup.enter)="onKeyup()"> -->
+
+
+<!-- old NgIF Directive -->
+ <!-- first use string interpolation to grab the username from app.component.ts -->
+<!-- <h2 *ngIf="isLoggedIn; else message" >{{userName}}</h2>
+
+<h4 *ngIf="!isLoggedIn"> User is not logged in </h4>
+
+<ng-template #message>
+  <h4> User is not logged in (Loaded using ng-template) </h4>
+</ng-template> -->
+
+
+<!-- new NgIF Directive -->
+<!-- @if(isLoggedIn){
+  <h3>{{userName}}</h3>
+}
+@else {
+  <h3>User is not logged in (loaded if using else block)</h3>
+}
+
+@if(!isLoggedIn){
+ <h4>User is not logged in (loaded if using syntax block)</h4>
+} -->
+
+
+<!-- Multiple Conditions I NgIf (not the best practice in the real world: slow and not good at scale)-->
+<!-- <h4 *ngIf="isAdmin">Welcome Admin</h4>
+
+<h4 *ngIf="isMember">Welcome Member</h4>
+
+<h4 *ngIf="isGuest">Welcome Guest</h4> -->
+
+<!-- ngIf and Else Approach -->
+<!-- <h4 *ngIf="isAdmin; else memberMessage">Welcome Admin</h4>
+
+<ng-template #memberMessage>
+  <h4 *ngIf="isMember; else guestMessage">Welcome Member</h4>
+</ng-template>
+
+<ng-template #guestMessage>
+  <h4 *ngIf="isGuest">Welcome Guest</h4>
+</ng-template> -->
+
+<!-- @if, @else syntax approach -->
+
+<!-- @if(isAdmin){
+  <h4>Welcome Admin</h4>
+}
+@else if(isMember) {
+  <h4>Welcome Member</h4>
+}
+@else {
+  <h4>Welcome Guest</h4>
+} -->
+
+<!-- if directives with Number Values -->
+<!-- <button (click)="countLoginAttempts()" *ngIf="loginCount <= 3">Log In</button>
+<h4 *ngIf="loginCount > 3">Exceeded 3 login Attempts, Try again later</h4>
+
+@if(loginCount <= 3){
+  <button (click)="countLoginAttempts()">Login Syntax</button>
+}
+
+@if(loginCount > 3){
+<h4>Exceeded 3 login attemps, try again later</h4>
+} -->
+
+<!-- if directives with String Values -->
+ <!-- <h4 *ngIf="userRole == 'Admin'; else memberMessage">Welcome Admin</h4>
+
+ <ng-template #memberMessage>
+  <h4>Welcome Member</h4>
+ </ng-template>
+
+ @if(userRole == 'Admin'){
+  <h4>Welcome Admin</h4>
+ }
+ @else if (userRole == 'Member') {
+  <h4>Welcome Member</h4>
+ }
+ @else {
+  <h4>Welcome Guest</h4>
+ } -->
+
+
+ <!-- ng-template directive -->
+<!-- <ng-template #callToAction>
+  <p>Call to Action</p>
+ <button>Join Now</button>
+</ng-template>
+
+ <div [ngTemplateOutlet]="callToAction"> <h5>Sidebar</h5></div>
+  <div [ngTemplateOutlet]="callToAction"> <h5>Hero</h5></div>
+   <div [ngTemplateOutlet]="callToAction"> <h5>Footer</h5></div> -->
+
+<!-- Ng for directive -->
+<!-- <h3>{{users[0]}}</h3>
+<h3>{{users[1]}}</h3>
+<h3>{{users[2]}}</h3>
+<h3>{{users[3]}}</h3>
+
+<h3 *ngFor="let user of users">{{user}}</h3>
+
+@for (user of users; track user) {
+  <h3>{{user}} - Loaded using for syntax block</h3>
+}
+
+<ul>
+  <li *ngFor="let user of users">{{user}}</li>
+</ul>
+
+
+<ul>
+@for (user of users; track user) {
+    <li>{{user}}</li>
+}
+</ul> -->
+
+
+<!-- fetch array objects -->
+
+<!-- <div>
+  <p *ngIf="usersObj.length == 0">No Users to Display</p>
+</div> -->
+
+<ul>
+<li *ngFor="let user of usersObj; let i = index; let usersCount = count">
+  {{usersCount}} - {{i}} {{user.name}} 
+  <button (click)="onDelete(user)">Delete</button></li>
+</ul>
+
+@if(usersObj.length == 0){
+  <p>No Users to Display - Loaded Using Syntax</p>
+}
+
+<ul>
+@for (user of usersObj; track user; let i = $index; let usersCount = $count) {
+  <li>{{usersCount}} - {{i}} {{user.name}} <button (click)="onDelete(i)">Delete</button></li>
+}
+
+@empty {
+  <p>No Users to Display - Loaded using Empty Syntax</p>
+}
+</ul>
+
+
+  
+
+<!-- change detection -->
+ <button (click)="addNewUser()">Add New User</button>
+
+
+
