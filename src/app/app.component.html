@@ -8,11 +8,45 @@
 <img [src]="imgURL" alt="freaky ah emoji"> <!-- property binding -->
 
 <!-- string interpolation vs property binding -->
- <button disabled="{{isDisabled}}">disable w/ string interpolation</button>
- <button [disabled]="isDisabled">disable w/ property binding</button>
+ <!-- <button disabled="{{isDisabled}}">disable w/ string interpolation</button> -->
+ <!-- <button [disabled]="isDisabled">disable w/ property binding</button> -->
 
 <!-- class binding -->
-<button [class.active]="isActive" [class.no-active]="!isActive">Click Me</button>
+<!-- <button [class.active]="isActive" [class.no-active]="!isActive">Click Me</button> -->
 
 <!-- style binding  -->
- <button [class.apple]="fruitName == 'Apple'">Fruit Ninja!</button>
+ <!-- <button [class.apple]="fruitName == 'Apple'">Fruit Ninja!</button> -->
+ 
+ <!-- <button 
+ [style.background]="isActive?'red' : 'green' "
+ [style.border]="isActive? '3px solid yellow' : '' "
+ >Click</button> -->
+
+
+ <!-- event binding -->
+<!-- <button (click)="buttonClick()">Click me</button> -->
+
+<!-- <button (keyup)="buttonClick()">Click me</button>
+<input type="text" (keyup)="keyEnter()"> -->
+
+<!-- Event Filtering I -->
+ <!-- <button (mouseover)="buttonClick()">Click me</button> -->
+<!-- <input type="text" (keyup)="keyEnter($event)"> -->
+
+
+<!-- Event Filtering II -->
+<!-- <input type="text" (keyup.enter)="keyupFiltering()"> -->
+
+<!-- Template Variable -->
+<!-- <input type="text" (keyup.enter)="keyupFiltering(user)" #user id="userInput"> -->
+
+<!-- Two Way Data Binding I -->
+<!-- <input type="text" [value]="userName" #username (keyup.enter)="updateUserName(username)"> -->
+
+<!-- Two Way Data Binding II -->
+<!-- <input type="text" [(ngModel)]="userName"  > -->
+<!-- <h3>{{userName}}</h3> -->
+
+<input type="text" [value]='textValue' (keyup.enter)="onKeyup()">
+
+<input type="text" [(ngModel)]='textValue' (keyup.enter)="onKeyup()">
