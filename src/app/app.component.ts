@@ -3,11 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from "./navbar/navbar.component";
 import { HeaderComponent } from "./header/header.component";
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgFor, NgTemplateOutlet],
+  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgFor, NgTemplateOutlet, NgSwitch, NgSwitchCase, NgSwitchDefault, NgStyle, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -46,7 +46,7 @@ export class AppComponent {
   //   console.log(this.textValue);
   // }
 
-//   isLoggedIn:boolean = false;
+  isLoggedIn:boolean = false;
 //   userName:string = 'John Doe';
 
 //   isAdmin:boolean = true;
@@ -90,5 +90,8 @@ users: Array<string> = ['John', 'Ryan', 'Bob', 'Jill'];
   onDelete(index: number){
     this.usersObj.splice(index, 1);
   }
+
+
+  userRole: string = '';
 }
 
