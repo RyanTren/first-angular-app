@@ -238,12 +238,38 @@
 }">Ng Style Directive</h1> -->
 
 <!-- ngClass Directive -->
-<h1 [class.login]="isLoggedIn" [class.logout]="!isLoggedIn">Class Binding</h1>
+<!-- <h1 [class.login]="isLoggedIn" [class.logout]="!isLoggedIn">Class Binding</h1>
 
 <h1 [ngClass]="{ 
   'login': isLoggedIn,
   'logout': !isLoggedIn,
-}">Ng Class Directive</h1>
+}">Ng Class Directive</h1> -->
+
+<!-- Parent and Chil Data Flow (post list component | ng g c post-lists) -->
+<!-- <h1>{{appPostTitle}} (App)</h1> -->
+<!-- <app-posts-list [postListTitle]="appPostTitle" [postIsLogin]="appIsLogin"></app-posts-list> -->
+
+<!-- Child to Parent Data Flow (@View Child) -->
+<!-- <app-posts-list (MessageEvent)="reciveMessage($event)"></app-posts-list>
+<p>{{message}}</p>
+<p>{{ messageFromChild }}</p> -->
+
+<!-- ng content Content Projection | ng g c card -->
+
+<!-- <app-posts-list></app-posts-list>
+<app-card>
+  <h2>John Doe</h2>
+  <p>01/08/24</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis minima, natus, </p>
+</app-card> -->
+
+<app-posts-list></app-posts-list>
+
+<app-card>
+  <span header>username</span>
+  <h1 body>John Doe</h1>
+  <button footer>View Profile</button>
+</app-card>
 
 
 
