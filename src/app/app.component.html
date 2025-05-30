@@ -263,13 +263,34 @@
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis minima, natus, </p>
 </app-card> -->
 
-<app-posts-list></app-posts-list>
+<!-- <app-posts-list></app-posts-list> -->
 
-<app-card>
+<!-- <app-card>
   <span header>username</span>
   <h1 body>John Doe</h1>
   <button footer>View Profile</button>
-</app-card>
+</app-card> -->
+
+<!-- Angular LifeCycle Hooks -->
+ <!-- remderomg components programatically -->
+<!-- <app-posts-list></app-posts-list>
+<div *ngComponentOutlet="loadComponent()"></div> -->
+
+<!-- <button (click)="loadComponent()">Create Component</button>
+<button (click)="removeComponent()">Remove Component</button> -->
+
+<!-- NgOnChanges LifeCycle Hook - called everytime an input property changes -->
+ <!-- <app-profile [pUserName]="username"></app-profile>
+<button (click)="changeUser()">Change Username</button> -->
 
 
+<!-- NgOnInit Lifecycle Hook - called when component is init - good for init components, api calls, complex setups. called only once -->
+ <!-- uses OnInit angular import in component.ts file must implement OnInit for the component export method and init a ngOnInit function -->
 
+ <!-- OnInit Constructor -->
+  <!-- this is a typescript feature and not really a angular feature -->
+ <app-profile [pUserName]="username"></app-profile>
+<button (click)="changeUser()">Change Username</button>
+
+<!-- NgDoCheck | called during every change detection run | custom change detection, complex objects, performance monitoring -->
+ 

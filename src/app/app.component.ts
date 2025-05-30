@@ -1,16 +1,17 @@
-import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, ViewChild, AfterViewInit, ViewContainerRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from "./navbar/navbar.component";
 import { HeaderComponent } from "./header/header.component";
 import { FormsModule } from '@angular/forms';
-import { NgClass, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgComponentOutlet, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet } from '@angular/common';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CardComponent } from "./card/card.component";
+import { ProfileComponent } from './profile/profile.component';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgFor, NgTemplateOutlet, NgSwitch, NgSwitchCase, NgSwitchDefault,
-    NgStyle, NgClass, PostsListComponent, CardComponent],
+    NgStyle, NgClass, PostsListComponent, CardComponent, NgComponentOutlet, ProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -105,25 +106,49 @@ import { CardComponent } from "./card/card.component";
 
 
 // Child to Parent Data Flow @ViewChild Lesson
-export class AppComponent implements AfterViewInit{
-  @ViewChild(PostsListComponent) childMessage: any;
-  message: string = '';
+// export class AppComponent implements AfterViewInit{
+//   @ViewChild(PostsListComponent) childMessage: any;
+//   message: string = '';
 
-  messageFromChild: string = '';
+//   messageFromChild: string = '';
 
-  constructor(){
-  console.log(this.childMessage);
+//   constructor(){
+//   console.log(this.childMessage);
+
+//   }
+
+//   ngAfterViewInit(): void {
+//     console.log(this.childMessage);
+//     this.message = this.childMessage.childMessage;
+// }
+
+//   reciveMessage(message: string){
+//     console.log(message);
+//     this.messageFromChild = message;
+//   }
+
+// }
+
+export class AppComponent{
+  
+  username : string = 'John Doe';
+
+  constructor (private viewContainer: ViewContainerRef){
+    
+  }
+
+  loadComponent(){
+    this.viewContainer.createComponent(PostsListComponent);
+    console.log('added post lists Component');
+    
+  }
+  removeComponent(){
+    this.viewContainer.remove();
+        console.log('removed post lists Component');
 
   }
 
-  ngAfterViewInit(): void {
-    console.log(this.childMessage);
-    this.message = this.childMessage.childMessage;
-}
-
-  reciveMessage(message: string){
-    console.log(message);
-    this.messageFromChild = message;
+  changeUser(){
+    this.username = 'John Smith';
   }
 }
-
