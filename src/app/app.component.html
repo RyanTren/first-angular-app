@@ -289,8 +289,17 @@
 
  <!-- OnInit Constructor -->
   <!-- this is a typescript feature and not really a angular feature -->
- <app-profile [pUserName]="username"></app-profile>
-<button (click)="changeUser()">Change Username</button>
+ <!-- <app-profile [pUserName]="username"></app-profile>
+<button (click)="changeUser()">Change Username</button> -->
 
 <!-- NgDoCheck | called during every change detection run | custom change detection, complex objects, performance monitoring -->
  
+<!-- NgAfterContentInit -->
+ <!-- <app-profile>
+  <h1>{{username}}</h1>
+    <p>Content Projected From Parent</p>
+ </app-profile> -->
+
+ <!-- NgAfterViewInit LifeCycle Hook -->
+  <button (click)="loadComponents()">Load Profile</button>
+  <button (click)="removeComponent()">Delete Profile</button>

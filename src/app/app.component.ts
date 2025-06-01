@@ -151,4 +151,8 @@ export class AppComponent{
   changeUser(){
     this.username = 'John Smith';
   }
+
+  loadComponents(){
+    this.viewContainer.createComponent(ProfileComponent);
+  }
 }

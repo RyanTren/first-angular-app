@@ -1,4 +1,4 @@
-import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 
 
 @Component({
@@ -7,9 +7,11 @@ import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent implements OnChanges, OnInit, DoCheck {
+export class ProfileComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
 
   @Input( ) pUserName : string = '';
+
+  counter : number = 0;
 
   constructor(){
     console.log('Constructor Method Triggered');
@@ -30,6 +32,35 @@ export class ProfileComponent implements OnChanges, OnInit, DoCheck {
 
   ngDoCheck() {
     console.log('NgDoCheck Triggered');
+    
+  }
+
+  incrementCounter(){
+    this.counter++;
+  }
+
+  ngAfterContentInit(){
+    console.log('AfterContentInit Triggered');
+    
+  }
+
+  ngAfterContentChecked() {
+    console.log('AfterContentChecked Triggered');
+    
+  }
+
+  ngAfterViewInit() {
+    console.log('AfterViewInit Triggered');
+    
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('AfterViewChecked Triggered');
+    
+  }
+
+  ngOnDestroy(){
+    console.log('OnDestroy Triggered');
     
   }
 }
