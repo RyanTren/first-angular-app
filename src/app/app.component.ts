@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from "./navbar/navbar.component";
 import { HeaderComponent } from "./header/header.component";
 import { FormsModule } from '@angular/forms';
-import { NgClass, NgComponentOutlet, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet } from '@angular/common';
+import { CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, LowerCasePipe, NgClass, NgComponentOutlet, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet, PercentPipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CardComponent } from "./card/card.component";
 import { ProfileComponent } from './profile/profile.component';
@@ -11,7 +11,8 @@ import { ProfileComponent } from './profile/profile.component';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgFor, NgTemplateOutlet, NgSwitch, NgSwitchCase, NgSwitchDefault,
-    NgStyle, NgClass, PostsListComponent, CardComponent, NgComponentOutlet, ProfileComponent],
+    NgStyle, NgClass, PostsListComponent, CardComponent, NgComponentOutlet, ProfileComponent, UpperCasePipe, LowerCasePipe,
+  TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe, JsonPipe, SlicePipe ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -131,28 +132,50 @@ import { ProfileComponent } from './profile/profile.component';
 
 export class AppComponent{
   
-  username : string = 'John Doe';
+  // username : string = 'John Doe';
 
-  constructor (private viewContainer: ViewContainerRef){
+  // constructor (private viewContainer: ViewContainerRef){
+    
+  // }
+
+  // loadComponent(){
+  //   this.viewContainer.createComponent(PostsListComponent);
+  //   console.log('added post lists Component');
+    
+  // }
+  // removeComponent(){
+  //   this.viewContainer.remove();
+  //       console.log('removed post lists Component');
+
+  // }
+
+  // changeUser(){
+  //   this.username = 'John Smith';
+  // }
+
+  // loadComponents(){
+  //   this.viewContainer.createComponent(ProfileComponent);
+  // }
+
+  title: string = 'angular app';
+
+  constructor(){
     
   }
-
-  loadComponent(){
-    this.viewContainer.createComponent(PostsListComponent);
-    console.log('added post lists Component');
-    
-  }
-  removeComponent(){
-    this.viewContainer.remove();
-        console.log('removed post lists Component');
-
+  
+  uppercase(){
+    this.title = this.title.toUpperCase();
   }
 
-  changeUser(){
-    this.username = 'John Smith';
+  today = new Date();
+
+  user: any = {
+    name: 'John',
+    age: 18,
+    email: 'john@doe.com'
   }
 
-  loadComponents(){
-    this.viewContainer.createComponent(ProfileComponent);
+  convertJSON(){
+    this.user = JSON.stringify(this.user);
   }
 }
