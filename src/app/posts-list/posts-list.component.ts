@@ -1,9 +1,12 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { CardComponent } from '../card/card.component';
+import { JsonPipe } from '@angular/common';
+import { UserComponent } from '../user/user.component';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-posts-list',
-  imports: [CardComponent],
+  imports: [CardComponent, JsonPipe, UserComponent],
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.css'
 })
@@ -20,4 +23,12 @@ export class PostsListComponent {
   //   console.log('button Clicked');
   //   this.MessageEvent.emit(this.parentMessage);
   // }
+
+  // angular services
+  @Input() childUser: any;
+  userService:any;
+
+  constructor(){
+    this.userService = new UserService()
+  }
 }

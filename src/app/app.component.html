@@ -305,42 +305,47 @@
   <button (click)="removeComponent()">Delete Profile</button> -->
 
 <!-- Angular Pipes : Uppercase Pipe -->
-  <h1>{{title}}</h1>
-  <button (click)="uppercase()">uppercase</button>
+  <!-- <h1>{{title}}</h1> -->
+  <!-- <button (click)="uppercase()">uppercase</button> -->
 
-  <h1>{{title | uppercase }}</h1>
+  <!-- <h1>{{title | uppercase }}</h1> -->
  <!-- Angular Pipes | Lowercase Pipe -->
-  <h1>{{title | lowercase}}</h1>
+  <!-- <h1>{{title | lowercase}}</h1> -->
 <!-- Angular Pipes | Titlecase Pipe -->
-  <h1>{{title | titlecase}}</h1>
+  <!-- <h1>{{title | titlecase}}</h1> -->
 <!-- Angular Pipes | Number Pipes -->
-  <h1>{{1234567.89 | number }}</h1>
+  <!-- <h1>{{1234567.89 | number }}</h1> -->
 <!-- Angular Pipes | Percentage Pipes, Currency Pipe -->
-  <h1>{{ 0.29 | percent}}</h1>
-  <h1>{{ 1000 | currency}}</h1>
+  <!-- <h1>{{ 0.29 | percent}}</h1> -->
+  <!-- <h1>{{ 1000 | currency}}</h1> -->
 <!-- Parameterized Pipe -->
-  <h1>{{ 1000 | currency : 'EUR'}}</h1>
-  <h1>{{ 1000 | currency : 'EUR' : 'code'}}</h1>
+  <!-- <h1>{{ 1000 | currency : 'EUR'}}</h1> -->
+  <!-- <h1>{{ 1000 | currency : 'EUR' : 'code'}}</h1> -->
 <!-- Date & Time Pipe -->
-  <h1>{{today | date}}</h1>
-  <h1>{{today | date: 'short'}} - short</h1>
-  <h1>{{today | date: 'medium'}} - medium</h1>
-  <h1>{{today | date: 'long'}} - long</h1>
-  <h1>{{today | date: 'full'}} - full</h1>
+  <!-- <h1>{{today | date}}</h1> -->
+  <!-- <h1>{{today | date: 'short'}} - short</h1> -->
+  <!-- <h1>{{today | date: 'medium'}} - medium</h1> -->
+  <!-- <h1>{{today | date: 'long'}} - long</h1> -->
+  <!-- <h1>{{today | date: 'full'}} - full</h1> -->
 <!-- Custom Date Format -->
- <h1>{{today | date: 'dd/MM/yyyy'}}</h1>
+ <!-- <h1>{{today | date: 'dd/MM/yyyy'}}</h1> -->
 <!-- Custome Time Format -->
-  <h1>{{today | date: 'hh:mm:ss'}}</h1>
-  <h1>{{today | date: 'hh:mm:ss a'}}</h1>
-  <h1>{{today | date: 'hh:mm:ss a z'}}</h1>
-  <h1>{{today | date: 'HH:mm:ss'}}</h1>
+  <!-- <h1>{{today | date: 'hh:mm:ss'}}</h1> -->
+  <!-- <h1>{{today | date: 'hh:mm:ss a'}}</h1> -->
+  <!-- <h1>{{today | date: 'hh:mm:ss a z'}}</h1> -->
+  <!-- <h1>{{today | date: 'HH:mm:ss'}}</h1> -->
 <!-- JSON Pipe -->
-<h1>{{user}}</h1>
-<button (click)="convertJSON()">Convert to JSON</button>
+<!-- <h1>{{user}}</h1> -->
+<!-- <button (click)="convertJSON()">Convert to JSON</button> -->
 
-<h1>{{user | json}}</h1>
-<!-- Slice Pipe -->
+<!-- <h1>{{user | json}}</h1> -->
+<!-- Slice Pipe
 <h1>{{'Hello Angular World' | slice: 6}}</h1>
-<h1>{{'Hello Angular World' | slice: 6 : 13}}</h1>
+<h1>{{'Hello Angular World' | slice: 6 : 13}}</h1> -->
 <!-- Chatting Pipe -->
-<h1>{{'Hello Angular World' | slice: 6 : 13 | uppercase | lowercase}}</h1>
+<!-- <h1>{{'Hello Angular World' | slice: 6 : 13 | uppercase | lowercase}}</h1> -->
+
+<!-- Angular Services -->
+ <app-posts-list></app-posts-list>
+
+<h1>{{userService.users | json}}</h1>

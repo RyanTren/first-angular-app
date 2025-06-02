@@ -7,12 +7,14 @@ import { CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, LowerCasePipe, NgClass, 
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CardComponent } from "./card/card.component";
 import { ProfileComponent } from './profile/profile.component';
+import { UserComponent } from "./user/user.component";
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgFor, NgTemplateOutlet, NgSwitch, NgSwitchCase, NgSwitchDefault,
     NgStyle, NgClass, PostsListComponent, CardComponent, NgComponentOutlet, ProfileComponent, UpperCasePipe, LowerCasePipe,
-  TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe, JsonPipe, SlicePipe ],
+    TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe, JsonPipe, SlicePipe, UserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -157,25 +159,37 @@ export class AppComponent{
   //   this.viewContainer.createComponent(ProfileComponent);
   // }
 
-  title: string = 'angular app';
+  // angular pipes
+  // title: string = 'angular app';
+
+  // constructor(){
+    
+  // }
+  
+  // uppercase(){
+  //   this.title = this.title.toUpperCase();
+  // }
+
+  // today = new Date();
+
+  // user: any = {
+  //   name: 'John',
+  //   age: 18,
+  //   email: 'john@doe.com'
+  // }
+
+  // convertJSON(){
+  //   this.user = JSON.stringify(this.user);
+  // }
+
+  // angular services
+  
+  userService: any;
+
 
   constructor(){
+    this.userService = new UserService();
+    console.log(this.userService);
     
-  }
-  
-  uppercase(){
-    this.title = this.title.toUpperCase();
-  }
-
-  today = new Date();
-
-  user: any = {
-    name: 'John',
-    age: 18,
-    email: 'john@doe.com'
-  }
-
-  convertJSON(){
-    this.user = JSON.stringify(this.user);
   }
 }
